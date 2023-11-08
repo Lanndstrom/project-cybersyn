@@ -143,6 +143,9 @@ function create_loading_order(stop, manifest, enable_inactive)
 	if enable_inactive then
 		condition[#condition + 1] = condition_wait_inactive
 	end
+	-- Modded Start
+	condition[#condition + 1] = {type = "time", compare_type = "or", ticks = 120*60}
+	-- Modded Ends
 	return {station = stop.backer_name, wait_conditions = condition}
 end
 
